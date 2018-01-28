@@ -1,0 +1,31 @@
+<html>
+
+<head>
+  <title>UserHome</title>
+</head>
+
+<body style = "background-color:powderblue;">
+  <h1 style = "font-size:40px; color:red;">User Home</h1><br>
+  {% if post_list %}
+    <ul>
+      {% for post in post_list %}
+      <li style = "font-size:20px">
+        <a href = "{% url 'blog:post_detail' post.pk %}">
+        {{ post.title }}
+        </a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h2 style = "font-size:30px;"> No posts are available. </h2>
+  {% endif %}
+
+  <br><a href = "{% url 'blog:userpage' %}"> User Page </a><br>
+  <a href = "{% url 'blog:userlist' %}"> User List </a><br>
+  <a href = "{% url 'blog:following' %}"> Follow List </a><br>
+  <a href = "{% url 'blog:write_post' %}"> Write Post </a><br>
+  <a href = "{% url 'blog:user_posts' %}"> My Posts </a><br>
+  <a href = "{% url 'blog:logout' %}"> Logout </a><br>
+
+</body>
+
+</html>

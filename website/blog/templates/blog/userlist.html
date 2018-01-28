@@ -1,0 +1,28 @@
+<html>
+
+<head>
+  <title>Userlist</title>
+</head>
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />
+
+<body style = "background-color:powderblue;">
+  <h1 style = "font-size:40px; color:red;">User List</h1><br>
+  {% if userlist %}
+    <ul>
+    {% for user in userlist %}
+        <li style = "font-size:30px; color:black">
+        <a href = "{% url 'blog:userpage' %}"> {{ user.username }} </a><br>
+        <a href = "{% url 'blog:user_follow' user.username %}"> Follow </a><br>
+        </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <h2 style = "font-size:30px;"> No users are available. </h2>
+  {% endif %}
+
+</body>
+
+</html>

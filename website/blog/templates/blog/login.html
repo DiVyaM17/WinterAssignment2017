@@ -1,0 +1,30 @@
+<html>
+
+<head>
+  <title>Login</title>
+</head>
+
+<body style = "background-color:powderblue;">
+  <h1 style = "font-size:40px; color:red;">Login</h1><br>
+
+  {% if messages %}
+    {% for message in messages %}
+      <p class = "{{ message.tags }}" style = "color:red">{{ message }}</p>
+    {% endfor %}
+  {% endif %}
+
+  <form action = "{% url 'blog:login' %}" method = "post">
+  {% csrf_token %}
+  <label for = 'username'><h2 style = "font-size:20px;"> UserName: </h2></label>
+    <input type = 'text' name = 'username'><br>
+  <label for = 'password'><h2 style = "font-size:20px;"> Password: </h2></label>
+    <input type = 'password', name = 'password'><br>
+  <input type = 'submit', value = 'submit'>
+  </form>
+  <br>
+  <h2 style = "font-size:20px"> To create an account, click below. </h1>
+  <p><a href = {% url 'blog:signup' %}> Sign Up </a>
+
+</body>
+
+</html>

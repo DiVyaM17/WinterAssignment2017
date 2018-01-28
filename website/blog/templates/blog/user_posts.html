@@ -1,0 +1,24 @@
+<html>
+
+<head>
+  <title>UserPosts</title>
+</head>
+
+<body style = "background-color:powderblue;">
+  <h1 style = "font-size:40px; color:red;">My Posts</h1><br>
+  {% if posts %}
+    <ul>
+      {% for post in posts %}
+        <li style = "font-size:20px">
+        <a href = "{% url 'blog:post_detail' post.pk %}">{{ post.title }}</a>
+        <a href = "{% url 'blog:delete_post' post.pk %}"> delete</a>      
+        </li>
+      {% endfor %}
+      </ul>
+  {% else %}
+    <h2 style = "font-size:30px;"> No posts are available. </h2>
+  {% endif %}
+
+</body>
+
+</html>

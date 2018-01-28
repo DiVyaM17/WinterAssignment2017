@@ -1,0 +1,36 @@
+<html>
+
+<head>
+  <title>Userpage</title>
+</head>
+
+<body style = "background-color:powderblue;">
+  <h1 style = "font-size:40px; color:red;">User Page</h1><br>
+
+  {% if messages %}
+    {% for message in messages %}
+      <p class = "{{ message.tags }}" style = "color:red">{{ message }}</p>
+    {% endfor %}
+  {% endif %}
+
+  {% if user %}
+    <ul>
+      <li style = "font-size:30px; color:black">First Name: {{user.first_name}}</li>
+      <li style = "font-size:30px; color:black">Last Name: {{user.last_name}}</li>
+      <li style = "font-size:30px; color:black">User Name: {{user.username}}</li>
+    </ul>
+  {% else %}
+    <h2 style = "font-size:30px;"> Error!! </h2>
+  {% endif %}
+
+  <br>
+  <a href = "{% url 'blog:userlist' %}"> User List </a><br>
+  <a href = "{% url 'blog:following' %}"> Follow List </a><br>
+  <a href = "{% url 'blog:write_post' %}"> Write Post </a><br>
+  <a href = "{% url 'blog:user_home' %}"> User Home </a><br>
+  <a href = "{% url 'blog:user_posts' %}"> My Posts </a><br>
+  <a href = "{% url 'blog:logout' %}"> Logout </a><br>
+
+</body>
+
+</html>

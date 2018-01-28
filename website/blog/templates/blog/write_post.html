@@ -1,0 +1,19 @@
+<html>
+
+<head>
+  <title>WritePost</title>
+</head>
+
+<body style = "background-color:powderblue;">
+  <h1 style = "font-size:40px; color:red;">Write Post</h1><br>
+  <form action = "{% url 'blog:write_post' %}" method = "post">
+  {% csrf_token %}
+  <label for = 'title'><h2 style = "font-size:20px;"> Title: </h2></label>
+    <input type = 'text' name = 'title'><br>
+  <label for = 'content'><h2 style = "font-size:20px;"> Content: </h2></label>
+    <input type = 'text' name = 'content'><br>
+  <input type = 'submit', value = 'submit'>
+  </form>
+</body>
+
+</html>

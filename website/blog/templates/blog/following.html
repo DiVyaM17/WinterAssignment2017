@@ -1,0 +1,26 @@
+<html>
+
+<head>
+  <title>Followinglist</title>
+</head>
+
+<body style = "background-color:powderblue;">
+  <h1 style = "font-size:40px; color:red;">Following List</h1><br>
+  {% if follow_list %}
+    <ul>
+    {% for user in follow_list %}
+        <li style = "font-size:30px; color:black">
+        <a href = "{% url 'blog:userpage' %}">
+        {{ user.username }} </a> </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <h2 style = "font-size:30px;"> You are not following anyone. </h2>
+  {% endif %}
+
+  <br>
+  <a href = "{% url 'blog:userlist' %}"> User List </a>
+
+</body>
+
+</html>
